@@ -28,8 +28,24 @@ describe('Tipos d localizadores', () => {
         cy.get('#firstName')
      })
 
-     it('Obtenerlo por medio de un tag por medio de una clase', () => {
-        //la clase copiada esta asi .mr-sm-2 form-control, pero se debe poner con un punto para que cypress reconozca .mr-sm-2.form-control
-        cy.get('.mr-sm-2.form-control')
+     it('Encontrar elementos usando contains', () => {
+        cy.contains('Reading')
+
+        //para deliminar mas la busqueda, puedo pasar la clase y el texto a buscar
+        cy.contains('.header-wrapper','Widgets')
      })
+
+     it('Encontrar el elemento parent', () => {
+      //obteniendo el elemto padre
+      cy.get('input[placeholder="First Name"]').parent()
+       //obteniendo los elemtos padres
+       cy.get('input[placeholder="First Name"]').parents()
+      //obteniendo un elemto especifico de los padres
+       cy.get('input[placeholder="First Name"]').parents().find('label')
+
+       //otra
+       cy.get('form').find('label')
+   })
+
+
   })
