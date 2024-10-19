@@ -30,6 +30,22 @@ describe('Guardando elementos', () => {
 				expect(labels.length).to.eq(16)
 				// Si queremos que este elemento de Jquery se vuelva un elemento de cypress debemos de usar wrap
 				cy.wrap(inputs).should('have.length', 15)
+
+                //debugger
+                cy.task('log', inputs.length)
+
+                //para imprimir en consola
+                cy.get('form').find('label')
+                cy.get('input[placeholder="First Name"]').then(console.log)
+
+                //para pausar
+                //cy.pause()
+
+                //Si queremos ver log en cypress como tal podemos usar
+                cy.log('soy la longitud', inputs.length)
+
+                cy.get('input[placeholder="First Name"]').debug()
+
 			})
  })
 
